@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跟着来老师学习Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        元数据：<input type="text" v-model:value="message">
+        <p style="color:red">注意观察console控制台输出内容</p>
+        <p>计算属性缓存数据：<span>{{reverseMessage}}</span></p>
+        <p>方法值：<span>{{methodReverseMessage()}}</span></p>
+        <p>再次使用计算属性：<span>{{ "反转之后是：" + reverseMessage}}</span></p>
+        <p>再次使用方法值：<span>{{ "反转之后是：" + methodReverseMessage()}}</span></p>
+    </div>
+    <script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            message:"啊啊啊啊12"
+        },
+        computed:{
+            reverseMessage:function(){
+                console.log("---------------------------");
+                console.log("进入计算属性，开始计算,如果原数据不变，第二次调用计算属性时，不会调用该方法！");
+                console.log("===========================");
+                return this.message.split("").reverse().join("");
+            }
+        },
+        methods:{
+            methodReverseMessage:function(){
+                console.log("---------------------------");
+                console.log("进入方法，开始计算");
+                console.log("============================");
+                return this.message.split("").reverse().join("");
+            }
+        }
+
+    })
+    </script>
+</body>
+</html>

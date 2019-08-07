@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跟着来老师学习Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 下面的写法是错误的，mustache语法不能用在属性上 -->
+        <!-- <p id="{{ pid }}"></p> -->
+        <!-- 应该使用v-bind -->
+        <p v-bind:id="pid"></p>
+        <button v-bind:disabled="isbtndisabled">clickme</button>
+    </div>
+    <script>
+    var vm = new Vue({
+        el:"#app",
+        data:{pid:"abc",isbtndisabled:false}
+    })
+    </script>
+</body>
+</html>

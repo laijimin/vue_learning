@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>跟着来老师学习Vue</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <p>使用插入文本的方式，HTML内容会被编码显示：{{ html }}</p>
+        <p>使用出入原始HTML的方法，会输出HTML内容，下面是一段H1标题：<span v-html="html"></span></p>
+    </div>
+    <script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            html:"<h1>动态输出的H1</h1>"
+        }
+    })
+    </script>
+</body>
+</html>
